@@ -36,8 +36,8 @@ const middlewares = (app) => {
 }
 
 const routes = (app) =>{
-    app.use("/opinionSystem/v1/publication", publicationRoutes)
-    app.use("/opinionSystem/v1/comment", commentRoutes)
+    app.use("/blog/v1/publication", publicationRoutes)
+    app.use("/blog/v1/comment", commentRoutes)
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 

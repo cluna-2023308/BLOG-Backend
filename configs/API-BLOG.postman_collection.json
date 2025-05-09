@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "1899b1a6-5850-4376-a93f-2f49b9367d6b",
+		"name": "API-BLOG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37604548"
+	},
+	"item": [
+		{
+			"name": "Publication",
+			"item": [
+				{
+					"name": "Listar Publicacion for Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 845u80ghuofngvjfhewvibfjdshgjre.wsrerfsews",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:3003/blog/v1/publication/Tecnologia III",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"blog",
+								"v1",
+								"publication",
+								"Tecnologia III"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Agregar Comentario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 845u80ghuofngvjfhewvibfjdshgjre.wsrerfsews",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"text\": \"Randy Hueco\",\n  \"publicationId\": \"681da66b9d4346477a6873b3\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/blog/v1/comment/createComment",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"blog",
+								"v1",
+								"comment",
+								"createComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Cometario",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 845u80ghuofngvjfhewvibfjdshgjre.wsrerfsews",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"text\": \"Neymar el principe que no quiso ser rey\",\n  \"publicationId\": \"243445gfr443\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3003/blog/v1/comment/updateComment/idComment",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"blog",
+								"v1",
+								"comment",
+								"updateComment",
+								"idComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Comentario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 845u80ghuofngvjfhewvibfjdshgjre.wsrerfsews",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:3003/blog/v1/comment/deleteComment/idComment",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"blog",
+								"v1",
+								"comment",
+								"deleteComment",
+								"idComment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
