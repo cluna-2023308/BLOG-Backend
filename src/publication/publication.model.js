@@ -15,6 +15,9 @@ const publicationSchema = Schema({
         type: Date,
         default: Date.now
     },
+    doc:{
+        type: String,
+    },
     category: {
         type: Schema.ObjectId,
         ref: 'Category',
