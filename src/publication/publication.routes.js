@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getPublicationsByCategoryName } from "./publication.controller.js";
+import { getPublicationsByCategoryName, getPDFByPublicationId, getPublicationById } from "./publication.controller.js";
 
 const router = Router();
 
@@ -50,5 +50,39 @@ const router = Router();
  *         description: Error interno del servidor
  */
 router.get("/:categoryName", getPublicationsByCategoryName);
+
+router.get("/pdf/:id", getPDFByPublicationId);
+
+/**
+ * @swagger
+ * /publication/{id}:
+ *   get:
+ *     summary: Obtiene una publicación específica por ID
+ *     description: Devuelve toda la información de una publicación mediante su ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID de la publicación
+ *     responses:
+ *       200:
+ *         description: Información de la publicación
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 publication:
+ *                   type: object
+ *       404:
+ *         description: No se encontró la publicación
+ *       500:
+ *         description: Error interno del servidor
+ */
+router.get("/forById/:id", getPublicationById);
 
 export default router;
