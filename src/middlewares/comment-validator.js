@@ -8,17 +8,3 @@ export const createCommentValidator = [
     validarCampos,
     handleErrors
 ]
-
-export const updateCommentVaidator = [
-    param("id", "No es un ID válido").isMongoId(),
-    param("id").custom(commentExists),
-    validarCampos,
-    handleErrors
-]
-
-export const deleteCommentVaidator = [
-    param("id", "No es un ID válido").isMongoId(),
-    param("id").custom(commentExists),
-    validarCampos,
-    handleErrors
-]

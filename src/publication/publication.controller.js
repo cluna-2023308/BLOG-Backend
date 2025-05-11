@@ -136,11 +136,11 @@ export const getPublicationsByCategoryName = async (req, res) => {
     }
 };
 
+// Este metodo su unico fin era poder observar que los pdf se esten guardando de manera correcta
 export const getPDFByPublicationId = async (req, res) => {
     const { id } = req.params;
 
     try {
-        // Busca la publicación por ID
         const publication = await Publication.findById(id);
 
         if (!publication) {
@@ -157,13 +157,11 @@ export const getPDFByPublicationId = async (req, res) => {
             });
         }
 
-        // Configura los encabezados para devolver el PDF
         res.set({
             "Content-Type": "application/pdf",
             "Content-Disposition": `inline; filename="${publication.title}.pdf"`,
         });
 
-        // Envía el contenido del PDF
         res.send(publication.doc);
     } catch (error) {
         console.error("Error al obtener el PDF de la publicación:", error);
@@ -179,8 +177,9 @@ export const getPublicationById = async (req, res) => {
     const { id } = req.params;
 
     try {
-        // Busca la publicación por ID
-        const publication = await Publication.findById(id).populate("category", "name");
+        const publication = await Publication.findById(id)
+            .populate("category", "name")
+            .populate("comments", "user text date");
 
         if (!publication) {
             return res.status(404).json({
@@ -189,14 +188,13 @@ export const getPublicationById = async (req, res) => {
             });
         }
 
-        // Devuelve la información de la publicación
         res.status(200).json({
             success: true,
             publication: {
                 _id: publication._id,
                 title: publication.title,
                 text: publication.text,
-                doc: publication.doc ? publication.doc.toString("base64") : null, // Devuelve el PDF como Base64 si existe
+                doc: publication.doc ? publication.doc.toString("base64") : null,
                 category: publication.category,
                 comments: publication.comments,
                 date: publication.date,
