@@ -12,8 +12,7 @@ const publicationSchema = Schema({
         maxLength: [500, "Text cannot exceed 500 characters"]
     },
     date:{
-        type: Date,
-        default: Date.now
+        type: Date
     },
     doc:{
         type: Buffer,

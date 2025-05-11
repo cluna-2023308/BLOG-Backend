@@ -10,7 +10,7 @@
 			"name": "Publication",
 			"item": [
 				{
-					"name": "Listar Publicacion for Category",
+					"name": "List Publication for Category",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -21,7 +21,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:3003/blog/v1/publication/Tecnologia III",
+							"raw": "http://127.0.0.1:3003/blog/v1/publication/Taller III",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -34,7 +34,101 @@
 								"blog",
 								"v1",
 								"publication",
-								"Tecnologia III"
+								"Taller III"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/blog/v1/publication/forById/<idPublication>",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"blog",
+								"v1",
+								"publication",
+								"forById",
+								"<idPublication>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PDF For ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/blog/v1/publication/pdf/<idPublication>",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"blog",
+								"v1",
+								"publication",
+								"pdf",
+								"<idPublication>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Publication New",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3003/blog/v1/publication/new/Taller III",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3003",
+							"path": [
+								"blog",
+								"v1",
+								"publication",
+								"new",
+								"Taller III"
 							]
 						}
 					},
@@ -63,7 +157,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"text\": \"Randy Hueco\",\n  \"publicationId\": \"681da66b9d4346477a6873b3\"\n}"
+							"raw": "{\n  \"user\": \"Hola\",\n  \"text\": \"Hola como estas\",\n  \"publicationId\": \"682005a452285db7c4bf6623\"\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1:3003/blog/v1/comment/createComment",
@@ -80,79 +174,6 @@
 								"v1",
 								"comment",
 								"createComment"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Editar Cometario",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer 845u80ghuofngvjfhewvibfjdshgjre.wsrerfsews",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"text\": \"Neymar el principe que no quiso ser rey\",\n  \"publicationId\": \"243445gfr443\"\n}"
-						},
-						"url": {
-							"raw": "http://127.0.0.1:3003/blog/v1/comment/updateComment/idComment",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3003",
-							"path": [
-								"blog",
-								"v1",
-								"comment",
-								"updateComment",
-								"idComment"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Eliminar Comentario",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer 845u80ghuofngvjfhewvibfjdshgjre.wsrerfsews",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:3003/blog/v1/comment/deleteComment/idComment",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3003",
-							"path": [
-								"blog",
-								"v1",
-								"comment",
-								"deleteComment",
-								"idComment"
 							]
 						}
 					},

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getPublicationsByCategoryName, getPDFByPublicationId, getPublicationById } from "./publication.controller.js";
+import { getPublicationsByCategoryName, getPDFByPublicationId, getPublicationById, getPublicationsByCategoryNew } from "./publication.controller.js";
 
 const router = Router();
 
@@ -84,5 +84,7 @@ router.get("/pdf/:id", getPDFByPublicationId);
  *         description: Error interno del servidor
  */
 router.get("/forById/:id", getPublicationById);
+
+router.get("/new/:categoryName", getPublicationsByCategoryNew);
 
 export default router;
