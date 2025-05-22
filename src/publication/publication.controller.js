@@ -2,6 +2,7 @@ import Publication from "../publication/publication.model.js";
 import Category from "../category/category.model.js";
 import path from "path";
 import { fileURLToPath } from 'url';
+import { fileTypeFromBuffer } from 'file-type';
 import fs from "fs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -290,8 +291,6 @@ export const getPublicationsByCategoryNew = async (req, res) => {
         });
     }
 };
-
-import { fileTypeFromBuffer } from 'file-type';
 
 export const getImageByPublicationId = async (req, res) => {
     const { id } = req.params;
