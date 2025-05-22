@@ -17,6 +17,10 @@ const publicationSchema = Schema({
     doc:{
         type: Buffer,
     },
+    image:{
+        type: Buffer,
+        default: null
+    },
     category: {
         type: Schema.ObjectId,
         ref: 'Category',

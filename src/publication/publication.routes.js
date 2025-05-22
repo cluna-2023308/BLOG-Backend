@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getPublicationsByCategoryName, getPDFByPublicationId, getPublicationById, getPublicationsByCategoryNew } from "./publication.controller.js";
+import { getPublicationsByCategoryName, getPDFByPublicationId, getPublicationById, getPublicationsByCategoryNew, getImageByPublicationId } from "./publication.controller.js";
 
 const router = Router();
 
@@ -87,4 +87,5 @@ router.get("/forById/:id", getPublicationById);
 
 router.get("/new/:categoryName", getPublicationsByCategoryNew);
 
+router.get("/image/:id", getImageByPublicationId);
 export default router;

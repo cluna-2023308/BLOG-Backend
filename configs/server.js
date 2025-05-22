@@ -11,8 +11,12 @@ import apiLimiter from "../src/middlewares/rate-limit-validator.js"
 import defaultCategories from "../src/category/category.controller.js"
 import { createDefaultPublications } from "../src/publication/publication.controller.js";
 import { swaggerDocs, swaggerUi } from "./swagger.js"
+import path from 'path';
+
+const __dirname = path.resolve();
 
 const middlewares = (app) => {
+    app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads', 'images')));
     app.use(express.urlencoded({extended: false}))
     app.use(express.json())
     app.use(cors({
